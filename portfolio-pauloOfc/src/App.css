@@ -1,0 +1,26 @@
+html, body{
+    overflow-x: hidden;
+}
+.banner{
+    height: 400px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0,0,0,0.6), rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url("/public/img/fundo.jpeg");
+    background-attachment:fixed;
+    background-position:50% 50%;
+    background-size:cover;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+input[type="checkbox"]{
+    display: none;
+}
+.sun{
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+.moon{
+    display: none;
+}
+.menu-btn.ativa {
+    background-color: oklch(0.274 0.006 286.033); 
+}

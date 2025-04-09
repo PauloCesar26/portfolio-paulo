@@ -1,10 +1,184 @@
 import Banner from "./Banner"
+import { useState } from "react"
 
 const Habilidades = () => {
+  const [filter, setFilter] = useState("all");
+
+  const habilidadesSelect = Object.freeze({
+    elements: [
+      {
+        name: "HTML", 
+        category: ["frontend"], 
+        image: "./img/html.svg" 
+      },
+      {
+        name: "CSS", 
+        category: ["frontend"], 
+        image: "./img/css.svg" 
+      },
+      {
+        name: "JavaScript", 
+        category: ["frontend", "backend"], 
+        image: "./img/javascript.svg" 
+      },
+      {
+        name: "React", 
+        category: ["frontend"], 
+        image: "./img/react.svg" 
+      },
+      {
+        name: "PHP", 
+        category: ["frontend", "backend"],
+        image: "./img/php.svg" 
+      },
+      {
+        name: "Python", 
+        category: ["backend"], 
+        image: "./img/python.svg"
+      },
+      {
+        name: "Java", 
+        category: ["backend"], 
+        image: "./img/java.svg"
+      },
+      {
+        name: "C++", 
+        category: ["backend"], 
+        image: "./img/c.svg"
+      },
+      {
+        name: "MySQL", 
+        category: ["bancodados"], 
+        image: "./img/mysql.svg"
+      },
+      {
+        name: "Bootstrap", 
+        category: ["frontend"], 
+        image: "./img/bootstrap.svg"
+      },
+      {
+        name: "Tailwind", 
+        category: ["frontend"], 
+        image: "./img/tailwind.svg"
+      },
+      {
+        name: "VS Code", 
+        category: ["ide"], 
+        image: "./img/vscode.svg"
+      },
+      {
+        name: "Neovim", 
+        category: ["ide"], 
+        image: "./img/neovim.svg"
+      },
+      {
+        name: "Git", 
+        category: ["controleversao"], 
+        image: "./img/git.svg" 
+      },
+      {
+        name: "GitHub", 
+        category: ["controleversao"], 
+        image: "./img/github.svg"
+      },
+    ]
+  });
+
+  const habilidadesFilter = habilidadesSelect.elements.filter((habilidade) => {
+    return filter === "all" || habilidade.category.includes(filter);
+  });
   return (
     <>
       <Banner />
-      <div>Habilidades</div>
+      <div className="">
+        <div className="mt-10 flex flex-col items-center justify-center w-full space-y-5">
+          <h2 className="text-black text-2xl font-medium dark:text-white">Habilidades</h2>
+
+          <label htmlFor="habilidades" data-i18n="filter" className="text-black dark:text-white">Filter Habilidades:
+          <select name="players" className="bg-gray-400 text-white p-1 ml-2 rounded-[15px] dark:bg-white dark:text-black" value={filter} onChange={(e) => setFilter(e.target.value)}>
+            <option value="all" data-i18n="all">All Habilidades</option>
+            <option value="frontend" data-i18n="nickname">Front-end</option>
+            <option value="backend" data-i18n="forward">Back-end</option>
+            <option value="bancodados" data-i18n="midfielder">Banco de Dados</option>
+            <option value="ide" data-i18n="defender">Editor de código / IDE</option>
+            <option value="controleversao" data-i18n="goalkeeper">Controle de versão</option>
+          </select>
+          </label>
+        </div>
+
+        <div className="p-10 flex flex-wrap gap-20 mt-25 justify-center space-y-20">
+          {habilidadesFilter.map((habilidade, index) => (
+            <a key={index} href="">
+              <div className="bg-gray-400 w-[250px] flex flex-col justify-center items-center relative rounded-[15px] dark:bg-gray-900 transition duration-700 ease-in-out">
+                <img src={habilidade.image} alt={habilidade.name} className="relative bottom-20"/>
+                <span className="absolute bottom-9 text-white font-bold">{habilidade.name}</span>
+              </div>
+            </a>
+          ))}
+          {/* <a href="">
+            <div className="bg-gray-400 w-[250px] flex flex-col justify-center items-center relative rounded-[15px] dark:bg-gray-900 transition duration-700 ease-in-out">
+              <img src="./img/css.svg" alt="" className="css relative bottom-20"/>
+              <span className="absolute bottom-9 text-white font-bold">CSS</span>
+            </div>
+          </a>
+          <a href="">
+            <div className="bg-gray-400 w-[250px] flex flex-col justify-center items-center relative rounded-[15px] dark:bg-gray-900 transition duration-700 ease-in-out">
+              <img src="./img/javascript.svg" alt="" className="css relative bottom-20"/>
+              <span className="absolute bottom-9 text-white font-bold">JavaScript</span>
+            </div>
+          </a>
+          <a href="">
+            <div className="bg-gray-400 w-[250px] flex flex-col justify-center items-center relative rounded-[15px] dark:bg-gray-900 transition duration-700 ease-in-out">
+              <img src="./img/react.svg" alt="" className="css relative bottom-20"/>
+              <span className="absolute bottom-9 text-white font-bold">React</span>
+            </div>
+          </a>
+          <a href="">
+            <div className="bg-gray-400 w-[250px] flex flex-col justify-center items-center relative rounded-[15px] dark:bg-gray-900 transition duration-700 ease-in-out">
+              <img src="./img/php.svg" alt="" className="css relative bottom-20"/>
+              <span className="absolute bottom-9 text-white font-bold">PHP</span>
+            </div>
+          </a>
+          <a href="">
+            <div className="bg-gray-400 w-[250px] flex flex-col justify-center items-center relative rounded-[15px] dark:bg-gray-900 transition duration-700 ease-in-out">
+              <img src="./img/python.svg" alt="" className="css relative bottom-20"/>
+              <span className="absolute bottom-9 text-white font-bold">Python</span>
+            </div>
+          </a>
+          <a href="">
+            <div className="bg-gray-400 w-[250px] flex flex-col justify-center items-center relative rounded-[15px] dark:bg-gray-900 transition duration-700 ease-in-out">
+              <img src="./img/java.svg" alt="" className="css relative bottom-20"/>
+              <span className="absolute bottom-9 text-white font-bold">Java</span>
+            </div>
+          </a>
+          <a href="">
+            <div className="bg-gray-400 w-[250px] flex flex-col justify-center items-center relative rounded-[15px] dark:bg-gray-900 transition duration-700 ease-in-out">
+              <img src="./img/c.svg" alt="" className="css relative bottom-20"/>
+              <span className="absolute bottom-9 text-white font-bold">C++</span>
+            </div>
+          </a>
+          <a href="">
+            <div className="bg-gray-400 w-[250px] flex flex-col justify-center items-center relative rounded-[15px] dark:bg-gray-900 transition duration-700 ease-in-out">
+              <img src="./img/mysql.svg" alt="" className="css relative bottom-20"/>
+              <span className="absolute bottom-9 text-white font-bold">MySql</span>
+            </div>
+          </a>
+          <a href="">
+            <div className="bg-gray-400 w-[250px] flex flex-col justify-center items-center relative rounded-[15px] dark:bg-gray-900 transition duration-700 ease-in-out">
+              <img src="./img/bootstrap.svg" alt="" className="css relative bottom-20"/>
+              <span className="absolute bottom-9 text-white font-bold">Bootstrap</span>
+            </div>
+          </a>
+          <a href="">
+            <div className="bg-gray-400 w-[250px] flex flex-col justify-center items-center relative rounded-[15px] dark:bg-gray-900 transition duration-700 ease-in-out">
+              <img src="./img/tailwind.svg" alt="" className="css relative bottom-20"/>
+              <span className="absolute bottom-9 text-white font-bold">Tailwind</span>
+            </div>
+          </a> */}
+          
+          
+        </div>
+      </div>
     </>
   )
 }

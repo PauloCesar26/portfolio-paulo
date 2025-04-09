@@ -229,8 +229,8 @@ function SidebarTrigger({
   const { toggleSidebar } = useSidebar()
 
   return (
-    <div className="widsidebar w-full fixed bg-white text-black p-5 dark:bg-black transition duration-700 ease-in-out">  
-      <div className="navbar flex items-center">
+    <div className=" z-40 w-full fixed bg-white text-black p-5 dark:bg-black transition duration-700 ease-in-out">  
+      <div className="flex items-center">
         <Button
           data-sidebar="trigger"
           data-slot="sidebar-trigger"
@@ -505,7 +505,7 @@ function SidebarMenuButton({
       data-sidebar="menu-button"
       data-size={size}
       data-active={isActive}
-      className={cn(sidebarMenuButtonVariants({ variant, size }), className="pt-5 pb-5 font-semibold cursor-pointer hover:bg-zinc-300 transition duration-700 ease-in-out dark:hover:bg-zinc-600")}
+      className={cn(sidebarMenuButtonVariants({ variant, size }), className="pt-5 pb-5 font-semibold cursor-pointer hover:bg-zinc-300 transition duration-700 ease-in-out dark:hover:bg-zinc-800")}
       {...props} />
   )
 

@@ -10,41 +10,42 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export function AppSidebar({ setPage }) {
   const navigate = useNavigate();
-  // Menu items.
-const items = [
-  {
-    title: "Home",
-    page: "Home",
-    icon: Home,
-  },
-  {
-    title: "Project Creator",
-    page: "Criador",
-    icon: UserRound,
-  },
-]
+  const location = useLocation();
+  
+  const items = [
+    {
+      title: "Home",
+      page: "Home",
+      icon: Home,
+    },
+    {
+      title: "Project Creator",
+      page: "Criador",
+      icon: UserRound,
+    },
+  ];
 
-const moreItems = [
-  {
-    title: "Habilidades",
-    page: "Habilidades",
-    icon: Inbox,
-  },
-  {
-    title: "Option1",
-    page: "#",
-    icon: Calendar,
-  },
-  {
-    title: "Option2",
-    page: "#",
-    icon: Settings,
-  },
-];
+  const moreItems = [
+    {
+      title: "Habilidades",
+      page: "Habilidades",
+      icon: Inbox,
+    },
+    {
+      title: "Option1",
+      page: "#",
+      icon: Calendar,
+    },
+    {
+      title: "Option2",
+      page: "#",
+      icon: Settings,
+    },
+  ];
 
   return (
     <Sidebar>
@@ -57,7 +58,8 @@ const moreItems = [
                       <SidebarMenuItem key={item.title}>
                         <SidebarMenuButton asChild>
                           <button 
-                              onClick={() => navigate(item.page)}>
+                              onClick={() => navigate(item.page)}
+                              className={`${location.pathname === `/${item.page}` ? "bg-zinc-300 dark:bg-zinc-800" : ""}`}>
                               <item.icon/>
                               <span>{item.title}</span>
                           </button>
@@ -75,7 +77,8 @@ const moreItems = [
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton asChild>
                       <button 
-                        onClick={() => navigate(item.page)}>
+                        onClick={() => navigate(item.page)}
+                        className={`${location.pathname === `/${item.page}` ? "bg-zinc-300 dark:bg-zinc-800" : ""}`}>
                         <item.icon/>
                         <span>{item.title}</span>
                       </button>

@@ -8,20 +8,6 @@ import Habilidades from './Pages/Habilidades';
 
 export default function Layout({ children }) {
   const navigate = useNavigate();
-  // const [page, setPage] = useState("home");
-
-  // const renderPage = () => {
-  //   switch(page){
-  //     case "home":
-  //       return <Home />;
-  //     case "criador":
-  //       return <ProjectCreator />;
-  //     case "habilidades":
-  //       return <Habilidades />;
-  //     default:
-  //       return <Home />;
-  //   }
-  // };
 
   return (
     <SidebarProvider>
@@ -31,8 +17,8 @@ export default function Layout({ children }) {
         {children}
       </div>
     
-      <main className="flex-1 w-full p-6 overflow-auto dark:bg-black">
-        <div className="min-h-[100vh] w-full mt-14 text-white dark:bg-black">
+      <main className="flex-1 w-full p-6 overflow-auto dark:bg-black transition duration-700 ease-in-out">
+        <div className="min-h-[100vh] w-full mt-15 text-white">
           <Routes>
               <Route path="/Home" element={<Home />} />
               <Route path="/Criador" element={<ProjectCreator />} />

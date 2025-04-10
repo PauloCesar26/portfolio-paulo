@@ -2,7 +2,7 @@ function Projects() {
     return (
       <>
           {/* Proejct 1 */}
-          <div className="flex flex-col w-[400px] h-[500px] bg-blue-900 rounded-[15px] overflow-hidden">
+          <div className="flex flex-col w-[350px] h-[500px] bg-blue-900 rounded-[15px] overflow-hidden">
               <div className="flex flex-col w-full h-[45%] bg-zinc-900 items-center justify-center">
                   Img
               </div>
@@ -22,7 +22,7 @@ function Projects() {
               </div>
           </div>
   
-          <div className="flex flex-col w-[400px] h-[500px] bg-blue-900 rounded-[15px] overflow-hidden">
+          <div className="flex flex-col w-[350px] h-[500px] bg-blue-900 rounded-[15px] overflow-hidden">
               <div className="flex flex-col w-full h-[45%] bg-zinc-900 items-center justify-center">
                   Img
               </div>
@@ -42,7 +42,7 @@ function Projects() {
               </div>
           </div>
   
-          <div className="flex flex-col w-[400px] h-[500px] bg-blue-900 rounded-[15px] overflow-hidden">
+          <div className="flex flex-col w-[350px] h-[500px] bg-blue-900 rounded-[15px] overflow-hidden">
               <div className="flex flex-col w-full h-[45%] bg-zinc-900 items-center justify-center">
                   Img
               </div>

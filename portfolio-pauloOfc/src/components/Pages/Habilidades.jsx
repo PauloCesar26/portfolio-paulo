@@ -106,7 +106,7 @@ const Habilidades = () => {
           </label>
         </div>
 
-        <div className="p-10 flex flex-wrap gap-20 mt-25 justify-center space-y-20">
+        <div className="m-10 p-10 flex flex-wrap gap-20 mt-25 justify-center space-y-20">
           {habilidadesFilter.map((habilidade, index) => (
             <a key={index} href="">
               <div className="bg-gray-400 w-[250px] flex flex-col justify-center items-center relative rounded-[15px] dark:bg-gray-900 transition duration-700 ease-in-out">

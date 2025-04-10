@@ -246,9 +246,9 @@ function SidebarTrigger({
           <span className="sr-only">Toggle Sidebar</span>
         </Button>
 
-        <div className="fixed flex gap-10 right-10 text-black dark:text-white">
+        <div className="fixed flex gap-8 right-10 text-black dark:text-white items-center">
           <Dark/>
-          <p>Teste</p>
+          <button className="pt-2 pb-2 pl-4 pr-4 bg-blue-900 rounded-[15px] cursor-pointer">Contact me</button>
         </div>
       </div>
     </div>

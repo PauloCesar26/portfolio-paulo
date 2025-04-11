@@ -23,6 +23,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
+import { useNavigate } from "react-router-dom"
 
 const SIDEBAR_COOKIE_NAME = "sidebar_state"
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
@@ -227,6 +228,7 @@ function SidebarTrigger({
   ...props
 }) {
   const { toggleSidebar } = useSidebar()
+  const navigate = useNavigate()
 
   return (
     <div className=" z-40 w-full fixed bg-white text-black p-5 dark:bg-black transition duration-700 ease-in-out">  
@@ -248,7 +250,11 @@ function SidebarTrigger({
 
         <div className="fixed flex gap-8 right-10 text-black dark:text-white items-center">
           <Dark/>
-          <button className="pt-2 pb-2 pl-4 pr-4 bg-blue-900 rounded-[15px] cursor-pointer">Contact me</button>
+          <button
+            onClick={() => navigate("/Criador")} 
+            className="pt-2 pb-2 pl-4 pr-4 bg-black text-white rounded-[15px] cursor-pointer">
+            Contact me
+          </button>
         </div>
       </div>
     </div>

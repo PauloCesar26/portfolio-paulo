@@ -1,4 +1,4 @@
-import { Calendar, Home, Inbox, Search, Settings, UserRound, Menu} from "lucide-react"
+import { Calendar, Home, Inbox, Search, Settings, UserRound, Menu, CodeXml} from "lucide-react"
 import {
   Sidebar,
   SidebarContent,
@@ -36,9 +36,9 @@ export function AppSidebar({ setPage }) {
       icon: Inbox,
     },
     {
-      title: "Option1",
-      page: "#",
-      icon: Calendar,
+      title: "Projects",
+      page: "Projects",
+      icon: CodeXml,
     },
     {
       title: "Option2",

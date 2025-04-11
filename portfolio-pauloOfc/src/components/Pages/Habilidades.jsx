@@ -9,77 +9,77 @@ const Habilidades = () => {
       {
         name: "HTML", 
         category: ["frontend"], 
-        image: "./img/html.svg" 
+        image: "./img/icons/html.svg" 
       },
       {
         name: "CSS", 
         category: ["frontend"], 
-        image: "./img/css.svg" 
+        image: "./img/icons/css.svg" 
       },
       {
         name: "JavaScript", 
         category: ["frontend", "backend"], 
-        image: "./img/javascript.svg" 
+        image: "./img/icons/javascript.svg" 
       },
       {
         name: "React", 
         category: ["frontend"], 
-        image: "./img/react.svg" 
+        image: "./img/icons/react.svg" 
       },
       {
         name: "PHP", 
         category: ["frontend", "backend"],
-        image: "./img/php.svg" 
+        image: "./img/icons/php.svg" 
       },
       {
         name: "Python", 
         category: ["backend"], 
-        image: "./img/python.svg"
+        image: "./img/icons/python.svg"
       },
       {
         name: "Java", 
         category: ["backend"], 
-        image: "./img/java.svg"
+        image: "./img/icons/java.svg"
       },
       {
         name: "C++", 
         category: ["backend"], 
-        image: "./img/c.svg"
+        image: "./img/icons/c.svg"
       },
       {
         name: "MySQL", 
         category: ["bancodados"], 
-        image: "./img/mysql.svg"
+        image: "./img/icons/mysql.svg"
       },
       {
         name: "Bootstrap", 
         category: ["frontend"], 
-        image: "./img/bootstrap.svg"
+        image: "./img/icons/bootstrap.svg"
       },
       {
         name: "Tailwind", 
         category: ["frontend"], 
-        image: "./img/tailwind.svg"
+        image: "./img/icons/tailwind.svg"
       },
       {
         name: "VS Code", 
         category: ["ide"], 
-        image: "./img/vscode.svg"
+        image: "./img/icons/vscode.svg"
       },
       {
         name: "Neovim", 
         category: ["ide"], 
-        image: "./img/neovim.svg"
+        image: "./img/icons/neovim.svg"
       },
       {
         name: "Git", 
         category: ["controleversao"], 
-        image: "./img/git.svg" 
+        image: "./img/icons/git.svg" 
       },
       {
         name: "GitHub", 
         category: ["controleversao"], 
-        image: "./img/github.svg"
+        image: "./img/icons/github.svg"
       },
     ]
   });
@@ -89,8 +89,7 @@ const Habilidades = () => {
   });
   return (
     <>
-      <Banner />
-      <div className="">
+      <div className="mt-20">
         <div className="mt-10 flex flex-col items-center justify-center w-full space-y-5">
           <h2 className="text-black text-2xl font-medium dark:text-white">Habilidades</h2>
 

@@ -25,6 +25,12 @@ html, body{
     background: -webkit-linear-gradient(to bottom, rgb(0, 0, 0, 0) 0, rgb(0, 0, 0, 0) 40%, #000 100%);
     background: linear-gradient(to bottom, rgb(0, 0, 0, 0) 0, rgb(0, 0, 0, 0) 40%, #000 100%); 
 }
+.projectsImg{
+    background-attachment:scroll;
+    background-position: center;
+    background-size:cover;
+    object-fit: cover;
+}
 
 input[type="checkbox"]{
     display: none;

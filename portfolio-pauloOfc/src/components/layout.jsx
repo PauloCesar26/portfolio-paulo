@@ -5,6 +5,7 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import Home from "./Pages/Home"
 import ProjectCreator from './Pages/ProjectCreator'
 import Habilidades from './Pages/Habilidades';
+import Projects from './Pages/Projects';
 
 export default function Layout({ children }) {
   const navigate = useNavigate();
@@ -23,6 +24,7 @@ export default function Layout({ children }) {
               <Route path="/Home" element={<Home />} />
               <Route path="/Criador" element={<ProjectCreator />} />
               <Route path="/Habilidades" element={<Habilidades />} />
+              <Route path="/Projects" element={<Projects />} />
               <Route path="*" element={<Home />} /> 
           </Routes>
         </div>

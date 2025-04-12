@@ -19,7 +19,7 @@ export default function Layout({ children }) {
       </div>
     
       <main className="flex-1 w-full overflow-auto dark:bg-black transition duration-700 ease-in-out">
-        <div className="min-h-[100vh] w-full mt-15 text-white">
+        <div className="min-h-[calc(100vh)-] w-full mt-15 text-white">
           <Routes>
               <Route path="/Home" element={<Home />} />
               <Route path="/Criador" element={<ProjectCreator />} />

@@ -29,14 +29,14 @@ const Home = ({setPage}) => {
                 </p>
               </div>
               <div className="w-[50%] flex justify-center">
-                <img src="/public/img/imgPortfolio01.png"/>
+                <img src="/public/img/imgPortfolio.png"/>
               </div>
             </div>
           </div>
 
           {/* My projects */}
           <div className="h-auto mt-10 flex flex-col justify-center items-center">
-            <h2>My Projects</h2>
+            <h1>My Projects</h1>
             <div className="mt-10 mb-10 h-auto flex gap-10 justify-center flex-wrap dark:bg-zinc-950">
 
               <div className="border-1 border-zinc-400 flex flex-col w-[350px] h-[500px] dark:bg-zinc-900/80 rounded-[15px] overflow-hidden">
@@ -50,15 +50,15 @@ const Home = ({setPage}) => {
                     <p>Projeto que foi parte do TCC do 3 ano do ensino médio, um site que disponibiliza conteudo sobre marketing pessoal
                     para estudar sobre empregabilidade e se sair bem no mercado de trabalho.</p>
                 </div>
-                <div className="h-[15%]  flex justify-around items-center border-t-1 border-zinc-400/20">
+                <div className="h-[15%] flex items-center border-t-1 border-zinc-400/20">
                     <ul className="flex gap-2 pl-1 items-center">
                         <li className="w-[14%]"><img src="./public/img/icons/html.svg" alt="" /></li>
                         <li className="w-[12%]"><img src="./public/img/icons/css.svg" alt="" /></li>
                         <li className="w-[12%]"><img src="./public/img/icons/php.svg" alt="" /></li>
-                        <li className="w-[12%]"><img src="./public/img/icons/bootstrap.svg" alt="" /></li>
-                        <li className="w-[15%]"><img src="./public/img/icons/mysql.svg" alt="" /></li>
+                        <li className="w-[13%]"><img src="./public/img/icons/bootstrap.svg" alt="" /></li>
+                        <li className="w-[16%]"><img src="./public/img/icons/mysql.svg" alt="" /></li>
                     </ul>
-                    <button>Project</button>
+                    <button className="pt-1 pb-1 pl-3 pr-3 bg-black text-white rounded-[15px] cursor-pointer mr-2">Projeto</button>
                 </div>
             </div>
     

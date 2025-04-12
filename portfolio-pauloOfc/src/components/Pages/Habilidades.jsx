@@ -91,7 +91,7 @@ const Habilidades = () => {
     <>
       <div className="mt-20">
         <div className="mt-10 flex flex-col items-center justify-center w-full space-y-5">
-          <h2 className="text-black text-2xl font-medium dark:text-white">Habilidades</h2>
+          <h1 className="text-black text-2xl font-medium dark:text-white">Habilidades</h1>
 
           <label htmlFor="habilidades" data-i18n="filter" className="text-black dark:text-white">Filter Habilidades:
           <select name="players" className="bg-gray-400 text-white p-1 ml-2 rounded-[15px] dark:bg-white dark:text-black" value={filter} onChange={(e) => setFilter(e.target.value)}>

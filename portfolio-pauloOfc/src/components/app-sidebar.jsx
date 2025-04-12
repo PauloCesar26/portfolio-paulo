@@ -37,7 +37,7 @@ export function AppSidebar({ setPage }) {
     },
     {
       title: "Projects",
-      page: "Projects",
+      page: "AllProjects",
       icon: CodeXml,
     },
     {

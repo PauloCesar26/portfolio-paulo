@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import Banner from "./Banner"
+import AllProjects from "./Allprojects"
 import Projects from "./Projects"
 
 const Home = ({setPage}) => {
@@ -36,21 +37,21 @@ const Home = ({setPage}) => {
 
           {/* My projects */}
           <div className="h-auto mt-10 flex flex-col justify-center items-center">
-            <h1>My Projects</h1>
-            <div className="mt-10 mb-10 h-auto flex gap-10 justify-center flex-wrap dark:bg-zinc-950">
-
-              <div className="border-1 border-zinc-400 flex flex-col w-[350px] h-[500px] dark:bg-zinc-900/80 rounded-[15px] overflow-hidden">
+            <h1 className="text-black dark:text-white">My Projects</h1>
+            <div className="mt-10 mb-10 h-auto flex gap-10 justify-center flex-wrap">
+              {/* Project 1 */}
+              <div className="bg-zinc-300 border-1 border-zinc-400 text-black dark:text-white flex flex-col w-[400px] h-[560px] dark:bg-zinc-900/80 rounded-[15px] overflow-hidden">
                 <div className="flex flex-col w-full h-[50%] bg-zinc-900">
                     <img src="./public/img/projectHirequest.png" alt="" className="w-full h-full object-cover object-center"/>
                 </div>
-                <div className="h-[10%] pt-3 pl-4 text-[1.1rem]">
-                    <span>Projeto sobre Marketing Pessoal</span>
+                <div className="h-[10%] pt-3 pl-4 text-[1.4rem]">
+                    <span>Marketing Pessoal</span>
                 </div>
-                <div className="h-[25%] text-[0.9rem] pl-4 pt-3">
+                <div className="h-[25%] text-[1rem] pt-2 pl-3 pr-3">
                     <p>Projeto que foi parte do TCC do 3 ano do ensino médio, um site que disponibiliza conteudo sobre marketing pessoal
                     para estudar sobre empregabilidade e se sair bem no mercado de trabalho.</p>
                 </div>
-                <div className="h-[15%] flex items-center border-t-1 border-zinc-400/20">
+                <div className="h-[15%] flex items-center border-t-1 border-zinc-900/20 dark:border-zinc-400/20">
                     <ul className="flex gap-2 pl-1 items-center">
                         <li className="w-[14%]"><img src="./public/img/icons/html.svg" alt="" /></li>
                         <li className="w-[12%]"><img src="./public/img/icons/css.svg" alt="" /></li>
@@ -60,9 +61,9 @@ const Home = ({setPage}) => {
                     </ul>
                     <button className="pt-1 pb-1 pl-3 pr-3 bg-black text-white rounded-[15px] cursor-pointer mr-2">Projeto</button>
                 </div>
-            </div>
-    
-            <div className="flex flex-col w-[350px] h-[500px] bg-blue-900 rounded-[15px] overflow-hidden">
+              </div>
+
+              <div className="flex flex-col w-[400px] h-[560px] bg-blue-900 rounded-[15px] overflow-hidden">
                 <div className="flex flex-col w-full h-[45%] bg-zinc-900 items-center justify-center">
                     Img
                 </div>
@@ -80,9 +81,9 @@ const Home = ({setPage}) => {
                     </ul>
                     <button>Project</button>
                 </div>
-            </div>
-    
-            <div className="flex flex-col w-[350px] h-[500px] bg-blue-900 rounded-[15px] overflow-hidden">
+              </div>
+
+              <div className="flex flex-col w-[400px] h-[560px] bg-blue-900 rounded-[15px] overflow-hidden">
                 <div className="flex flex-col w-full h-[45%] bg-zinc-900 items-center justify-center">
                     Img
                 </div>
@@ -100,14 +101,33 @@ const Home = ({setPage}) => {
                     </ul>
                     <button>Project</button>
                 </div>
-            </div>
+              </div>
             </div>
             <button 
-              onClick={() => navigate("/Projects")} 
+              onClick={() => navigate("/AllProjects")} 
               className="pt-2 pb-2 pl-4 pr-4 bg-blue-900 rounded-[15px] cursor-pointer">
               Ver outros projetos
             </button>
           </div>
+
+          {/* Blog */}
+          <div className="h-auto mt-15 pt-5 flex flex-col justify-center items-center bg-zinc-300 text-black dark:bg-zinc-900/80">
+            <h1 className="text-black dark:text-white">Blogs</h1>
+              <div className="mt-10 mb-10 h-auto flex gap-10 justify-center flex-wrap">
+                {/* Blog 1 */}
+                <div className="bg-zinc-100 border-1 border-zinc-400 flex flex-col w-[370px] h-[480px] dark:bg-zinc-800 dark:text-white rounded-[15px] overflow-hidden">
+                  <div className="flex flex-col w-full h-[50%] bg-zinc-900">
+                      <img src="./public/img/imgJavascript.jpeg" alt="" className="w-full h-full object-cover object-center"/>
+                  </div>
+                  <div className="flex-1 p-4 text-[1.5rem]">
+                      <span>JavaScript: Explorando os conceitos do DOM</span>
+                  </div>
+                  <div className="text-[0.9rem] p-5 flex items-center justify-end border-t-1 border-zinc-300 dark:border-zinc-700">
+                    <a href="../public/blog/blogJavascript/index.html" target="blank" className="pt-3 pb-3 pr-4 pl-4 text-white dark:bg-zinc-950 bg-zinc-900/80 rounded-[15px]">Acessar Blog</a>
+                  </div>
+                </div>
+              </div>
+            </div>
 
         </div>
     </>

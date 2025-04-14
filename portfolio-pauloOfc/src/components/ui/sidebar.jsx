@@ -231,7 +231,7 @@ function SidebarTrigger({
   const navigate = useNavigate()
 
   return (
-    <div className=" z-40 w-full fixed bg-white text-black p-5 dark:bg-black transition duration-700 ease-in-out">  
+    <div className=" z-40 w-full fixed bg-zinc-100 text-black p-5 dark:bg-black transition duration-700 ease-in-out">  
       <div className="flex items-center">
         <Button
           data-sidebar="trigger"
@@ -250,11 +250,6 @@ function SidebarTrigger({
 
         <div className="fixed flex gap-8 right-10 text-black dark:text-white items-center">
           <Dark/>
-          <button
-            onClick={() => navigate("/Criador")} 
-            className="pt-2 pb-2 pl-4 pr-4 bg-black text-white rounded-[15px] cursor-pointer">
-            Contact me
-          </button>
         </div>
       </div>
     </div>

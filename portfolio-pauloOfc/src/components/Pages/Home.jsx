@@ -11,11 +11,14 @@ const Home = ({setPage}) => {
         <div className="">
           <Banner/>
 
-          <div className="min-h-[400px] bg-zinc-300 text-black dark:bg-zinc-900/80 dark:text-white p-6 flex flex-col justify-center items-center">
+          {/* About */}
+          <div className="min-h-[400px] pt-10 text-black bg-zinc-100 dark:bg-black dark:text-white p-6 flex flex-col justify-center items-center">
             <h1>Sobre mim</h1>
-            <div className="flex flex-wrap justify-center items-center w-full">
-              {/* About */}
-              <div className="w-[50%] flex flex-col justify-center space-y-6">
+            <div className="flex flex-col md:flex-row-reverse flex-wrap justify-center items-center w-full">
+                <div className="w-full md:w-1/2 flex justify-center">
+                  <img src="/public/img/imgPortfolio.png"/>
+                </div>
+              <div className="w-full md:w-1/2 flex flex-col justify-center space-y-6 p-10">
                 <p>Sou um estudante recém-formado no ensino médio técnico em Desenvolvimento de Sistemas, 
                   atualmente iniciando minha jornada como desenvolvedor front-end. Tenho paixão por criar 
                   websites, com foco em interfaces e design.
@@ -29,18 +32,15 @@ const Home = ({setPage}) => {
                   que me permitam crescer e explorar novos caminhos para o futuro.
                 </p>
               </div>
-              <div className="w-[50%] flex justify-center">
-                <img src="/public/img/imgPortfolio.png"/>
-              </div>
             </div>
           </div>
 
           {/* My projects */}
-          <div className="h-auto mt-10 flex flex-col justify-center items-center">
+          <div className="h-auto pt-10 flex flex-col justify-center items-center bg-zinc-300 dark:bg-zinc-900/80">
             <h1 className="text-black dark:text-white">My Projects</h1>
             <div className="mt-10 mb-10 h-auto flex gap-10 justify-center flex-wrap">
               {/* Project 1 */}
-              <div className="bg-zinc-300 border-1 border-zinc-400 text-black dark:text-white flex flex-col w-[400px] h-[560px] dark:bg-zinc-900/80 rounded-[15px] overflow-hidden">
+              <div className="bg-zinc-100 border-1 border-zinc-400 text-black dark:text-white flex flex-col w-[400px] h-[560px] dark:bg-zinc-800 rounded-[15px] overflow-hidden">
                 <div className="flex flex-col w-full h-[50%] bg-zinc-900">
                     <img src="./public/img/projectHirequest.png" alt="" className="w-full h-full object-cover object-center"/>
                 </div>
@@ -106,29 +106,40 @@ const Home = ({setPage}) => {
             <button 
               onClick={() => navigate("/AllProjects")} 
               className="pt-2 pb-2 pl-4 pr-4 bg-blue-900 rounded-[15px] cursor-pointer">
-              Ver outros projetos
+              Ver todos projetos
             </button>
           </div>
 
           {/* Blog */}
-          <div className="h-auto mt-15 pt-5 flex flex-col justify-center items-center bg-zinc-300 text-black dark:bg-zinc-900/80">
-            <h1 className="text-black dark:text-white">Blogs</h1>
+          <div className="h-auto pt-10 flex flex-col justify-center items-center text-black bg-zinc-100 dark:bg-black">
+            <h1 className="text-black dark:text-white">Blog</h1>
               <div className="mt-10 mb-10 h-auto flex gap-10 justify-center flex-wrap">
                 {/* Blog 1 */}
-                <div className="bg-zinc-100 border-1 border-zinc-400 flex flex-col w-[370px] h-[480px] dark:bg-zinc-800 dark:text-white rounded-[15px] overflow-hidden">
+                <div className="bg-zinc-200 border-1 border-zinc-400 flex flex-col w-[370px] h-[480px] dark:bg-zinc-800 dark:text-white rounded-[15px] overflow-hidden">
                   <div className="flex flex-col w-full h-[50%] bg-zinc-900">
                       <img src="./public/img/imgJavascript.jpeg" alt="" className="w-full h-full object-cover object-center"/>
                   </div>
                   <div className="flex-1 p-4 text-[1.5rem]">
                       <span>JavaScript: Explorando os conceitos do DOM</span>
                   </div>
-                  <div className="text-[0.9rem] p-5 flex items-center justify-end border-t-1 border-zinc-300 dark:border-zinc-700">
+                  <div className="text-[0.9rem] p-5 flex items-center justify-end dark:border-zinc-700">
                     <a href="../public/blog/blogJavascript/index.html" target="blank" className="pt-3 pb-3 pr-4 pl-4 text-white dark:bg-zinc-950 bg-zinc-900/80 rounded-[15px]">Acessar Blog</a>
+                  </div>
+                </div>
+                {/* Blog 2 */}
+                <div className="bg-zinc-200 border-1 border-zinc-400 flex flex-col w-[370px] h-[480px] dark:bg-zinc-800 dark:text-white rounded-[15px] overflow-hidden">
+                  <div className="flex flex-col w-full h-[50%] bg-zinc-900">
+                      <img src="./public/img/rede.jpeg" alt="" className="w-full h-full object-cover object-center"/>
+                  </div>
+                  <div className="flex-1 p-4 text-[1.5rem]">
+                      <span>Modelo OSI e TCP IP: Conceitos e comparação dos temas</span>
+                  </div>
+                  <div className="text-[0.9rem] p-5 flex items-center justify-end dark:border-zinc-700">
+                    <a href="../public/blog/blogOsiTcpip/index.html" target="blank" className="pt-3 pb-3 pr-4 pl-4 text-white dark:bg-zinc-950 bg-zinc-900/80 rounded-[15px]">Acessar Blog</a>
                   </div>
                 </div>
               </div>
             </div>
-
         </div>
     </>
   )

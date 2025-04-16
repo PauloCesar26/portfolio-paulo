@@ -8,7 +8,7 @@ const Home = ({setPage}) => {
   
   return (
     <>
-        <div className="">
+        <div>
           <Banner/>
 
           {/* About */}
@@ -36,11 +36,11 @@ const Home = ({setPage}) => {
           </div>
 
           {/* My projects */}
-          <div className="h-auto pt-10 flex flex-col justify-center items-center bg-zinc-300 dark:bg-zinc-900/80">
+          <div className="h-auto pt-10 pb-10 flex flex-col justify-center items-center bg-zinc-200 dark:bg-zinc-900/40">
             <h1 className="text-black dark:text-white">My Projects</h1>
             <div className="mt-10 mb-10 h-auto flex gap-10 justify-center flex-wrap">
               {/* Project 1 */}
-              <div className="bg-zinc-100 border-1 border-zinc-400 text-black dark:text-white flex flex-col w-[400px] h-[560px] dark:bg-zinc-800 rounded-[15px] overflow-hidden">
+              <div className="bg-zinc-100 border-1 border-zinc-400 text-black dark:text-white flex flex-col w-[400px] h-[560px] dark:bg-zinc-900 rounded-[15px] overflow-hidden">
                 <div className="flex flex-col w-full h-[50%] bg-zinc-900">
                     <img src="./public/img/projectHirequest.png" alt="" className="w-full h-full object-cover object-center"/>
                 </div>
@@ -59,7 +59,7 @@ const Home = ({setPage}) => {
                         <li className="w-[13%]"><img src="./public/img/icons/bootstrap.svg" alt="" /></li>
                         <li className="w-[16%]"><img src="./public/img/icons/mysql.svg" alt="" /></li>
                     </ul>
-                    <button className="pt-1 pb-1 pl-3 pr-3 bg-black text-white rounded-[15px] cursor-pointer mr-2">Projeto</button>
+                    <button className="pt-1 pb-1 pl-3 pr-3 bg-zinc-400/60 text-black dark:bg-zinc-700 dark:text-zinc-300 rounded-[15px] cursor-pointer mr-2">Projeto</button>
                 </div>
               </div>
 
@@ -105,17 +105,21 @@ const Home = ({setPage}) => {
             </div>
             <button 
               onClick={() => navigate("/AllProjects")} 
-              className="pt-2 pb-2 pl-4 pr-4 bg-blue-900 rounded-[15px] cursor-pointer">
-              Ver todos projetos
+              className="flex items-center justify-center pt-3 pb-3 pl-10 pr-10 bg-zinc-900/80 text-[18px] text-white dark:bg-zinc-200 dark:text-black rounded-[15px] cursor-pointer">
+              All Projects
             </button>
           </div>
 
+          <div className="fundoFrase min-h-[350px] max-h-[500px] p-10 flex flex-col justify-center items-center">
+            <h1 className="z-40 text-[1px] md:text-[10px]">"Programador não é aquele que sabe linguagem de programação x e y, programador é aquele que sabe aprender rápido e aplicar o seu conhecimento" - Paulo Cesar</h1>
+          </div>
+
           {/* Blog */}
-          <div className="h-auto pt-10 flex flex-col justify-center items-center text-black bg-zinc-100 dark:bg-black">
+          <div className="h-auto pt-10 pb-10 flex flex-col justify-center items-center text-black bg-zinc-100 dark:bg-zinc-900/40">
             <h1 className="text-black dark:text-white">Blog</h1>
               <div className="mt-10 mb-10 h-auto flex gap-10 justify-center flex-wrap">
                 {/* Blog 1 */}
-                <div className="bg-zinc-200 border-1 border-zinc-400 flex flex-col w-[370px] h-[480px] dark:bg-zinc-800 dark:text-white rounded-[15px] overflow-hidden">
+                <div className="bg-zinc-200 border-1 border-zinc-400 flex flex-col w-[370px] h-[480px] dark:bg-zinc-900 dark:text-white rounded-[15px] overflow-hidden">
                   <div className="flex flex-col w-full h-[50%] bg-zinc-900">
                       <img src="./public/img/imgJavascript.jpeg" alt="" className="w-full h-full object-cover object-center"/>
                   </div>
@@ -123,11 +127,11 @@ const Home = ({setPage}) => {
                       <span>JavaScript: Explorando os conceitos do DOM</span>
                   </div>
                   <div className="text-[0.9rem] p-5 flex items-center justify-end dark:border-zinc-700">
-                    <a href="../public/blog/blogJavascript/index.html" target="blank" className="pt-3 pb-3 pr-4 pl-4 text-white dark:bg-zinc-950 bg-zinc-900/80 rounded-[15px]">Acessar Blog</a>
+                    <a href="../public/blog/blogJavascript/index.html" target="blank" className="pt-3 pb-3 pr-4 pl-4 bg-zinc-400/60 text-black dark:bg-zinc-700 dark:text-zinc-300  rounded-[15px]">Acessar Blog</a>
                   </div>
                 </div>
                 {/* Blog 2 */}
-                <div className="bg-zinc-200 border-1 border-zinc-400 flex flex-col w-[370px] h-[480px] dark:bg-zinc-800 dark:text-white rounded-[15px] overflow-hidden">
+                <div className="bg-zinc-200 border-1 border-zinc-400 flex flex-col w-[370px] h-[480px] dark:bg-zinc-900 dark:text-white rounded-[15px] overflow-hidden">
                   <div className="flex flex-col w-full h-[50%] bg-zinc-900">
                       <img src="./public/img/rede.jpeg" alt="" className="w-full h-full object-cover object-center"/>
                   </div>
@@ -135,11 +139,46 @@ const Home = ({setPage}) => {
                       <span>Modelo OSI e TCP IP: Conceitos e comparação dos temas</span>
                   </div>
                   <div className="text-[0.9rem] p-5 flex items-center justify-end dark:border-zinc-700">
-                    <a href="../public/blog/blogOsiTcpip/index.html" target="blank" className="pt-3 pb-3 pr-4 pl-4 text-white dark:bg-zinc-950 bg-zinc-900/80 rounded-[15px]">Acessar Blog</a>
+                    <a href="../public/blog/blogOsiTcpip/index.html" target="blank" className="pt-3 pb-3 pr-4 pl-4 bg-zinc-400/60 text-black dark:bg-zinc-700 dark:text-zinc-300 rounded-[15px]">Acessar Blog</a>
                   </div>
                 </div>
               </div>
+          </div>
+          
+          <footer id="contato" className="bg-zinc-200 dark:bg-black w-full flex flex-col items-center pt-10 pb-2 pl-10 pr-10">
+            <div className="w-full flex flex-col  flex-wrap items-center">
+              <h1 className="text-black dark:text-zinc-200">Entre em contato</h1>
+              <div className="w-full pt-5 pb-7 mb-5 flex flex-col justify-center items-center space-y-6 md:w-1/2 border-b-1 border-zinc-500">
+                <button
+                    onClick={() => navigate("/Criador")} 
+                    className="flex items-center justify-center pt-3 pb-3 pl-10 pr-10 bg-zinc-900/80 text-[18px] text-white dark:bg-zinc-200 dark:text-black rounded-[15px] cursor-pointer">
+                    Contact me
+                </button>
+              </div>
+
+              <div className="w-full flex items-center justify-center">
+                <div className="w-full md:w-[40%]">
+                  <form action="https://formsubmit.co/pc.cordeirolima@gmail.com" method="POST" className="flex flex-col text-black dark:text-white text-[16px]">
+                    <label htmlFor="">Nome:</label>
+                    <input type="text" name="name" placeholder="Digite seu nome" className="text-black dark:text-white border-1 border-zinc-600 rounded-[10px] pt-2 pb-2 pl-3 pr-3"/>
+                    <label htmlFor="" className="mt-6">Digite seu email:</label>
+                    <input type="text" name="email" placeholder="Digite seu nome" className="text-black dark:text-white border-1 border-zinc-600 rounded-[10px] pt-2 pb-2 pl-3 pr-3"/>
+                    <label htmlFor="" className="mt-6">Mensagem:</label>
+                    <textarea name="mensagem" id="" placeholder="Digite sua mensagem" className="pt-2 pb-2 pl-3 pr-3 min-h-[150px] border-1 border-zinc-600 rounded-[10px]"></textarea>
+                    <div className="w-full flex items-center justify-center">
+                      <button type="submit"
+                        className="flex items-center justify-center mt-5 pt-3 pb-3 pl-10 pr-10 bg-zinc-900/80 text-[18px] text-white dark:bg-zinc-200 dark:text-black rounded-[15px] cursor-pointer">
+                        Enviar
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
             </div>
+            <div className="w-full p-5 mt-10 border-t-1 border-zinc-700 dark:border-zinc-100/50 flex justify-center text-black dark:text-white">
+              <span>&copy; Paulo Cesar 2025</span>
+            </div>
+          </footer>
         </div>
     </>
   )

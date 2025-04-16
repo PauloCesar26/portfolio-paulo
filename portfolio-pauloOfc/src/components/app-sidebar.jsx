@@ -59,7 +59,7 @@ export function AppSidebar({ setPage }) {
                         <SidebarMenuButton asChild>
                           <button 
                               onClick={() => navigate(item.page)}
-                              className={`${location.pathname === `/${item.page}` ? "bg-zinc-300 dark:bg-zinc-800" : ""}`}>
+                              className={`${location.pathname === `/${item.page}` ? "bg-zinc-400/40 dark:bg-zinc-800" : ""}`}>
                               <item.icon/>
                               <span>{item.title}</span>
                           </button>
@@ -78,7 +78,7 @@ export function AppSidebar({ setPage }) {
                     <SidebarMenuButton asChild>
                       <button 
                         onClick={() => navigate(item.page)}
-                        className={`${location.pathname === `/${item.page}` ? "bg-zinc-300 dark:bg-zinc-800" : ""}`}>
+                        className={`${location.pathname === `/${item.page}` ? "bg-zinc-400/40 dark:bg-zinc-800" : ""}`}>
                         <item.icon/>
                         <span>{item.title}</span>
                       </button>
@@ -89,7 +89,6 @@ export function AppSidebar({ setPage }) {
             </SidebarGroupContent>
           </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter/>
     </Sidebar>
   )
 }

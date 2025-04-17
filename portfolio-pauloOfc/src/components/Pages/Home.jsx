@@ -1,10 +1,50 @@
 import { useNavigate } from "react-router-dom"
+import { useState } from "react"
 import Banner from "./Banner"
 import AllProjects from "./Allprojects"
 import Projects from "./Projects"
+import { MessageCircleOff } from "lucide-react"
 
 const Home = ({setPage}) => {
   const navigate = useNavigate();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [erroName, setErroName] = useState("");
+  const [erroEmail, setErroEmail] = useState("");
+  const [erroMessage, setErroMessage] = useState("");
+
+  const validation = (event) => {
+    event.preventDefault();
+    let valido = false;
+
+    if(name.trim() === ""){
+      setErroName("Preencha o campo nome!");
+      valido = false;
+    }
+    else if(email.trim() === ""){
+      setErroEmail("Preencha o campo email!");
+      valido = false;
+    }
+    else if(message.trim() === ""){
+      setErroMessage("Preencha o campo menssagem!");
+      valido = false;
+    }
+    else{
+      console.log("Nome: ", name)
+      setErroName("");
+      setErroEmail("");
+      setErroMessage("");
+      valido = true;
+    }
+  
+    if(valido === true){
+      setName("");
+      setEmail("");
+      setMessage("");
+      return;
+    }
+  }
   
   return (
     <>
@@ -148,7 +188,7 @@ const Home = ({setPage}) => {
           <footer id="contato" className="bg-zinc-200 dark:bg-black w-full flex flex-col items-center pt-10 pb-2 pl-10 pr-10">
             <div className="w-full flex flex-col  flex-wrap items-center">
               <h1 className="text-black dark:text-zinc-200">Entre em contato</h1>
-              <div className="w-full pt-5 pb-7 mb-5 flex flex-col justify-center items-center space-y-6 md:w-1/2 border-b-1 border-zinc-500">
+              <div className="w-full lg:w-[40%] pt-5 pb-7 mb-5 flex flex-col justify-center items-center space-y-6 md:w-1/2 border-b-1 border-zinc-500">
                 <button
                     onClick={() => navigate("/Criador")} 
                     className="flex items-center justify-center pt-3 pb-3 pl-10 pr-10 bg-zinc-900/80 text-[18px] text-white dark:bg-zinc-200 dark:text-black rounded-[15px] cursor-pointer">
@@ -157,14 +197,39 @@ const Home = ({setPage}) => {
               </div>
 
               <div className="w-full flex items-center justify-center">
-                <div className="w-full md:w-[40%]">
-                  <form action="https://formsubmit.co/pc.cordeirolima@gmail.com" method="POST" className="flex flex-col text-black dark:text-white text-[16px]">
+                <div className="w-full lg:w-[40%]">
+                  <form onSubmit={validation} action="https://formsubmit.co/pc.cordeirolima@gmail.com" method="POST" className="flex flex-col text-black dark:text-white text-[16px]">
                     <label htmlFor="">Nome:</label>
-                    <input type="text" name="name" placeholder="Digite seu nome" className="text-black dark:text-white border-1 border-zinc-600 rounded-[10px] pt-2 pb-2 pl-3 pr-3"/>
+                    <input type="text" 
+                      name="name" 
+                      placeholder="Digite seu nome"
+                      value={name} 
+                      onChange={(e) => setName(e.target.value)} 
+                      className="text-black dark:text-white border-1 border-zinc-600 rounded-[10px] pt-2 pb-2 pl-3 pr-3"
+                    />
+                    {erroName && <p className="mt-1 text-[16px] text-red-700">{erroName}</p>}
+                    
                     <label htmlFor="" className="mt-6">Digite seu email:</label>
-                    <input type="text" name="email" placeholder="Digite seu nome" className="text-black dark:text-white border-1 border-zinc-600 rounded-[10px] pt-2 pb-2 pl-3 pr-3"/>
+                    <input 
+                      type="text" 
+                      name="email" 
+                      placeholder="Digite seu email"
+                      value={email} 
+                      onChange={(e) => setEmail(e.target.value)}  
+                      className="text-black dark:text-white border-1 border-zinc-600 rounded-[10px] pt-2 pb-2 pl-3 pr-3"
+                    />
+                    {erroEmail && <p className="mt-1 text-[16px] text-red-700">{erroEmail}</p>}
+                    
                     <label htmlFor="" className="mt-6">Mensagem:</label>
-                    <textarea name="mensagem" id="" placeholder="Digite sua mensagem" className="pt-2 pb-2 pl-3 pr-3 min-h-[150px] border-1 border-zinc-600 rounded-[10px]"></textarea>
+                    <textarea 
+                      name="mensagem" 
+                      placeholder="Digite sua mensagem" 
+                      value={message} 
+                      onChange={(e) => setMessage(e.target.value)}  
+                      className="text-black dark:text-white pt-2 pb-2 pl-3 pr-3 min-h-[150px] border-1 border-zinc-600 rounded-[10px]"
+                    ></textarea>
+                    {erroMessage && <p className="mt-1 text-[16px] text-red-700">{erroMessage}</p>}
+                    
                     <div className="w-full flex items-center justify-center">
                       <button type="submit"
                         className="flex items-center justify-center mt-5 pt-3 pb-3 pl-10 pr-10 bg-zinc-900/80 text-[18px] text-white dark:bg-zinc-200 dark:text-black rounded-[15px] cursor-pointer">

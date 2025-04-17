@@ -14,12 +14,12 @@ const ProjectCreator = ({setPage}) => {
                             <h1>Contatos</h1>
                             <button onClick={() => window.open("https://www.linkedin.com/in/paulo-cesar-8465b7342/", "_blank")} 
                                 className="w-[80%] bg-zinc-400/70 text-black dark:bg-zinc-700 dark:text-white pt-4 pb-4 rounded-[15px] flex items-center justify-center pr-10 gap-5 cursor-pointer">
-                                <img src="../public/img/icons/linkedin.svg" alt="" className="max-w-[50px]"/>
+                                <img src="../public/img/icons/linkedin.svg" alt="" className="w-[50px]"/>
                                 <span className="text-[1.5rem]">Linkedin</span>
                             </button>
                             <button onClick={() => window.open("https://www.instagram.com/", "_blank")} 
                                 className="w-[80%] bg-zinc-400/70 text-black dark:bg-zinc-700 dark:text-white pt-4 pb-4 rounded-[15px] flex items-center justify-center pr-10 gap-5 cursor-pointer">
-                                <img src="../public/img/icons/github.svg" alt="" className="max-w-[50px]"/>
+                                <img src="../public/img/icons/github.svg" alt="" className="w-[50px]"/>
                                 <span className="text-[1.5rem]">Github</span>
                             </button>
                             <div className="w-[80%] pt-5 pb-4 rounded-[15px] flex justify-center gap-5 text-[1.5rem]">

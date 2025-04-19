@@ -47,9 +47,9 @@ html, body{
 }
 .projectsImg{
     background-attachment:scroll;
-    background-position: center;
+    background-position:center;
     background-size:cover;
-    object-fit: cover;
+    object-fit:cover;
 }
 
 input[type="checkbox"]{
@@ -82,4 +82,19 @@ h1{
     font-family: "Fredoka", sans-serif;
     font-size: 2rem;
     font-weight: 400;
+}
+/* w-[400px] h-[560px] */
+@media screen and (max-width: 1200px){
+    .responsiveProject{
+        flex-direction: column;
+        height: 560px;
+        width: 400px;
+    }
+    .responsiveProject img{
+        width: 100%;
+        height: 100%;
+    }
+}
+@media screen and (max-width: 500px){
+ 
 }

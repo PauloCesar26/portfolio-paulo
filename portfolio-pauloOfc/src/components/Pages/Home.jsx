@@ -1,50 +1,86 @@
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 import Banner from "./Banner"
+import { toast } from "sonner"
+import { AlertCircle } from "lucide-react"
 import AllProjects from "./Allprojects"
 import Projects from "./Projects"
 import { MessageCircleOff } from "lucide-react"
 
 const Home = ({setPage}) => {
   const navigate = useNavigate();
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [erroName, setErroName] = useState("");
-  const [erroEmail, setErroEmail] = useState("");
-  const [erroMessage, setErroMessage] = useState("");
 
-  const validation = (event) => {
+  const [formInfo, setFormInfo] = useState(
+    {
+      name: "",
+      email: "",
+      message: ""
+    }
+  );
+  const [status, setStatus] = useState("");
+  const information = (e) => {
+    setFormInfo(
+      {
+        ...formInfo,
+        [e.target.name]: e.target.value
+      }
+    );
+  }
+
+  const validation = async (event) => {
     event.preventDefault();
-    let valido = false;
 
-    if(name.trim() === ""){
-      setErroName("Preencha o campo nome!");
-      valido = false;
-    }
-    else if(email.trim() === ""){
-      setErroEmail("Preencha o campo email!");
-      valido = false;
-    }
-    else if(message.trim() === ""){
-      setErroMessage("Preencha o campo menssagem!");
-      valido = false;
-    }
-    else{
-      console.log("Nome: ", name)
-      setErroName("");
-      setErroEmail("");
-      setErroMessage("");
-      valido = true;
-    }
-  
-    if(valido === true){
-      setName("");
-      setEmail("");
-      setMessage("");
+    if(!formInfo.name.trim()){
+      setStatus( 
+        toast.error("Preencha o campo nome!")
+      );
       return;
     }
-  }
+    if(!formInfo.email.trim().includes("@")){
+      setStatus(
+        toast.error("Preencha o campo email!")
+      );
+      return;
+    }
+    if(!formInfo.message.trim()){
+      setStatus(
+        toast.error("Preencha o campo mensagem")
+      );
+      return;
+    }
+  
+      const data = new FormData();
+      data.append("name", formInfo.name);
+      data.append("email", formInfo.email);
+      data.append("message", formInfo.message);
+      data.append("_captcha", "false");
+      data.append("_honey", "");
+  
+      try{
+        const response = await fetch("https://formsubmit.co/pc.cordeirolima@gmail.com", {
+          method: "POST",
+          body: data
+        });
+  
+        if(response.ok){
+          setStatus(toast.success("Mensagem enviada com sucesso!"));
+          setFormInfo(
+            {
+              name:"", 
+              email:"", 
+              message:""
+            }
+          );
+        }
+        else{
+          setStatus(toast.error("Erro ao enviar a mensagem!"))
+        }
+      }
+      catch(error){
+        setStatus(toast.error("Erro ao enviar a mensagem!"))
+        console.log(error);
+      }
+  };
   
   return (
     <>
@@ -78,28 +114,32 @@ const Home = ({setPage}) => {
           {/* My projects */}
           <div className="h-auto pt-10 pb-10 flex flex-col justify-center items-center bg-zinc-200 dark:bg-zinc-900/40">
             <h1 className="text-black dark:text-white">My Projects</h1>
-            <div className="mt-10 mb-10 h-auto flex gap-10 justify-center flex-wrap">
+            <div className="mt-10 mb-10 h-auto flex flex-col gap-10 justify-center items-center flex-wrap">
               {/* Project 1 */}
-              <div className="bg-zinc-100 border-1 border-zinc-400 text-black dark:text-white flex flex-col w-[400px] h-[560px] dark:bg-zinc-900 rounded-[15px] overflow-hidden">
-                <div className="flex flex-col w-full h-[50%] bg-zinc-900">
+              <div className="responsiveProject bg-zinc-100 border-1 border-zinc-400 text-black dark:text-white flex w-[80%] h-[350px] dark:bg-zinc-900 rounded-[15px] overflow-hidden">
+                <div className="flex w-[60%] h-full bg-zinc-900">
                     <img src="./public/img/projectHirequest.png" alt="" className="w-full h-full object-cover object-center"/>
                 </div>
-                <div className="h-[10%] pt-3 pl-4 text-[1.4rem]">
-                    <span>Marketing Pessoal</span>
-                </div>
-                <div className="h-[25%] text-[1rem] pt-2 pl-3 pr-3">
-                    <p>Projeto que foi parte do TCC do 3 ano do ensino médio, um site que disponibiliza conteudo sobre marketing pessoal
-                    para estudar sobre empregabilidade e se sair bem no mercado de trabalho.</p>
-                </div>
-                <div className="h-[15%] flex items-center border-t-1 border-zinc-900/20 dark:border-zinc-400/20">
-                    <ul className="flex gap-2 pl-1 items-center">
-                        <li className="w-[14%]"><img src="./public/img/icons/html.svg" alt="" /></li>
-                        <li className="w-[12%]"><img src="./public/img/icons/css.svg" alt="" /></li>
-                        <li className="w-[12%]"><img src="./public/img/icons/php.svg" alt="" /></li>
-                        <li className="w-[13%]"><img src="./public/img/icons/bootstrap.svg" alt="" /></li>
-                        <li className="w-[16%]"><img src="./public/img/icons/mysql.svg" alt="" /></li>
-                    </ul>
-                    <button className="pt-1 pb-1 pl-3 pr-3 bg-zinc-400/60 text-black dark:bg-zinc-700 dark:text-zinc-300 rounded-[15px] cursor-pointer mr-2">Projeto</button>
+                <div className="flex flex-col w-[100%]">
+                  <div className="flex flex-col flex-1 space-y-10 p-4">
+                    <div className="h-[10%] pt-3 pl-4 text-[1.4rem]">
+                        <span>Marketing Pessoal</span>
+                    </div>
+                    <div className="h-[25%] text-[1rem] pt-2 pl-3 pr-3">
+                        <p>Projeto que foi parte do TCC do 3 ano do ensino médio, um site que disponibiliza conteudo sobre marketing pessoal
+                        para estudar sobre empregabilidade e se sair bem no mercado de trabalho.</p>
+                    </div>
+                  </div>
+                  <div className="h-[15%] flex items-center justify-between border-t-1 border-zinc-900/20 dark:border-zinc-400/20 p-10">
+                      <ul className="flex gap-2 items-center">
+                          <li className="w-[14%]"><img src="./public/img/icons/html.svg" alt="" /></li>
+                          <li className="w-[12%]"><img src="./public/img/icons/css.svg" alt="" /></li>
+                          <li className="w-[12%]"><img src="./public/img/icons/php.svg" alt="" /></li>
+                          <li className="w-[13%]"><img src="./public/img/icons/bootstrap.svg" alt="" /></li>
+                          <li className="w-[16%]"><img src="./public/img/icons/mysql.svg" alt="" /></li>
+                      </ul>
+                      <button className="pt-1 pb-1 pl-3 pr-3 bg-zinc-400/60 text-black dark:bg-zinc-700 dark:text-zinc-300 rounded-[15px] cursor-pointer mr-2">Projeto</button>
+                  </div>
                 </div>
               </div>
 
@@ -203,32 +243,30 @@ const Home = ({setPage}) => {
                     <input type="text" 
                       name="name" 
                       placeholder="Digite seu nome"
-                      value={name} 
-                      onChange={(e) => setName(e.target.value)} 
+                      value={formInfo.name}
+                      onChange={information}
                       className="text-black dark:text-white border-1 border-zinc-600 rounded-[10px] pt-2 pb-2 pl-3 pr-3"
                     />
-                    {erroName && <p className="mt-1 text-[16px] text-red-700">{erroName}</p>}
+
                     
                     <label htmlFor="" className="mt-6">Digite seu email:</label>
                     <input 
                       type="text" 
                       name="email" 
                       placeholder="Digite seu email"
-                      value={email} 
-                      onChange={(e) => setEmail(e.target.value)}  
+                      value={formInfo.email}
+                      onChange={information}
                       className="text-black dark:text-white border-1 border-zinc-600 rounded-[10px] pt-2 pb-2 pl-3 pr-3"
                     />
-                    {erroEmail && <p className="mt-1 text-[16px] text-red-700">{erroEmail}</p>}
                     
                     <label htmlFor="" className="mt-6">Mensagem:</label>
                     <textarea 
-                      name="mensagem" 
+                      name="message" 
                       placeholder="Digite sua mensagem" 
-                      value={message} 
-                      onChange={(e) => setMessage(e.target.value)}  
+                      value={formInfo.message}
+                      onChange={information} 
                       className="text-black dark:text-white pt-2 pb-2 pl-3 pr-3 min-h-[150px] border-1 border-zinc-600 rounded-[10px]"
-                    ></textarea>
-                    {erroMessage && <p className="mt-1 text-[16px] text-red-700">{erroMessage}</p>}
+                    ></textarea>    
                     
                     <div className="w-full flex items-center justify-center">
                       <button type="submit"
